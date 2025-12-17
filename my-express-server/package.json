@@ -1,0 +1,16 @@
+{
+  "name": "my-express-server",
+  "version": "1.0.0",
+  "description": "Simple Express app with nodemon",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon --watch src --ext js,json --exec node src/server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}

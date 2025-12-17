@@ -4,6 +4,21 @@ services:
       context: ./python-server
       dockerfile: Dockerfile
     ports:
-      - 8000:8000
+      - "8000:8000"
     volumes:
       - ./python-server/src:/app/src
+
+  node-server:
+    build:
+      context: ./my-express-server
+      dockerfile: Dockerfile
+    ports:
+      - "8001:8001"
+    volumes:
+      - ./my-express-server/src:/usr/src/app/src
+      - ./my-express-server/nodemon.json:/usr/src/app/nodemon.json
+    environment:
+      - NODE_ENV=development
+    command: npx nodemon --exec npm start
+    depends_on:
+      - python-server
